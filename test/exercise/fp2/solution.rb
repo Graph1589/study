@@ -14,8 +14,8 @@ module Exercise
       # Написать свою функцию my_map
       def my_map
         result = []
-        func = ->(x) { result << yield(x) }
-        my_each(&func)
+        func = ->(result, x) { result << yield(x) }
+        my_reduce(result, &func)
         MyArray.new(result)
       end
 
